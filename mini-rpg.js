@@ -29,11 +29,11 @@ function turnoGiocatore() {
         if (azioni === "attaccare") {
             let danno = Math.floor(Math.random() * giocatore.attacco + 5);
             mostro.vita = mostro.vita - danno;
-            console.log(`Hai attaccato il mostro! Vita rimanente del mostro: ${mostro.vita}`);
+            console.log("Hai attaccato il mostro! Vita rimanente del mostro: " + mostro.vita);
         } else if (azioni === "curarsi") {
             giocatore.vita = giocatore.vita + Math.floor(Math.random() * 10 + 5);
             giocatore.vita--;
-            console.log(`Ti hai curato! Vita aumentata a: ${giocatore.vita}`);
+            console.log("Ti hai curato! Vita aumentata a: " + giocatore.vita);
         } else if (azioni === "fuggire") {
             console.log("Sei riuscito a fuggire.");
         } else {
@@ -44,10 +44,15 @@ function turnoGiocatore() {
         
 // Gestire il turno del mostro (attacco automatico)
 function turnoMostro() {
-    let attaccoMostro = Math.floor(Math.random() * mostro.attacco) + mostro;
-    console.log("Il mostro attacca per " + attaccoMostro + " punti");
+    // let attaccoMostro = Math.floor(Math.random() * mostro.attacco) + 5;
+    console.log("Il mostro ti ha attaccato. Questo è la tua vita rimanente: " + giocatore.vita);
     giocatore.vita = giocatore.vita - attaccoMostro;
     console.log("Il tuo giocatore ha attualmente " + giocatore.vita + "di vita.");
+    if (mostro.vita <= 0) {
+        console.log("Hai vinto! Congratulazioni!");
+      } else if (giocatore.vita <= 0) {
+        console.log("Game over.");
+      }
 }
 
 // Gestire la fine del gioco (sconfitta, vittoria o fuga)
