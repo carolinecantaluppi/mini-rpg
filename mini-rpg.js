@@ -27,11 +27,11 @@ let mostro = Math.floor(Math.random() * mostri.length);
 
 function turnoGiocatore() {
     let azioni = prompt("Scegli una delle seguenti opzioni: attaccare, curarsi o fuggire"); 
-    while (giocatore.vita > 0 && mostro.vita > 0) {
+    // while (giocatore.vita > 0 && mostro.vita > 0) {
         if (azioni === "attaccare") {
             let danno = Math.floor(Math.random() * giocatore.attacco + 5);
-            mostro.vita = mostro.vita - danno;
-            console.log("Hai attaccato il mostro! Vita rimanente del mostro: " + mostro.vita);
+            mostri[mostro].vita = mostri[mostro].vita - danno;
+            console.log("Hai attaccato il mostro! Vita rimanente del mostro: " + mostri[mostro].vita);
         } else if (azioni === "curarsi") {
             giocatore.vita = giocatore.vita + Math.floor(Math.random() * 10 + 5);
             giocatore.vita--;
@@ -41,7 +41,7 @@ function turnoGiocatore() {
         } else {
             console.log("Non valido. Scrivi una opzione valida.");
         }
-    }
+    // }
     fineGioco();
 }
         
