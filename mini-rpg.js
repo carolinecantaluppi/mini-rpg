@@ -1,9 +1,3 @@
-
-
-// Gestire il turno del giocatore (può compiere 3 opzioni: attaccare, curarsi e tentare la fuga)
-// Gestire il turno del mostro (attacco automatico)
-// Gestire la fine del gioco (sconfitta, vittoria o fuga)
-
 // Altre specifiche:
 // Il giocatore può curarsi solo 3 volte
 // La cura, l’attacco e la difesa sono valori random tra due estremi
@@ -38,3 +32,18 @@ let mostro = {
 }
 
 
+// Gestire il turno del giocatore (può compiere 3 opzioni: attaccare, curarsi e tentare la fuga)
+function turnoGiocatore() {
+    let scelta = prompt("Scegli una delle seguenti opzioni: attaccare, curarsi o fuga \n"); 
+    if (scelta === "attaccare") {
+        attacco();
+    } else if (scelta === "curarsi") {
+        cura();
+    } else if (scelta === "fuga") {
+        fuga();
+    }
+}
+        
+// Gestire il turno del mostro (attacco automatico)
+
+// Gestire la fine del gioco (sconfitta, vittoria o fuga)
