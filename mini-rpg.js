@@ -41,9 +41,28 @@ function turnoGiocatore() {
         cura();
     } else if (scelta === "fuga") {
         fuga();
+    } else {
+        console.log("Non valido. Scrivi una opzione valida.");
     }
 }
         
 // Gestire il turno del mostro (attacco automatico)
+function turnoMostro() {
+    let attaccoMostro = Math.floor(Math.random() * mostro.attacco) + mostro;
+    console.log("Il mostro attacca per " + attaccoMostro + " punti");
+    giocatore.vita = giocatore.vita - attaccoMostro;
+    console.log("Il tuo giocatore ha attualmente " + giocatore.vita + "di vita.");
+}
 
 // Gestire la fine del gioco (sconfitta, vittoria o fuga)
+function fineGioco() {
+    if (giocatore.vita <= 0) {
+        console.log("Game Over. Purtroppo, hai perso. Il mostro ti ha sconfitto.");
+    }
+    if (mostro.vita <= 0) {
+        console.log("Hai vinto! Hai sconfitto il mostro.");
+    }
+    if (giocatore.fuga === 1) {
+        console.log("Hai fuggito! Hai evitato il mostro.");
+    }
+}
