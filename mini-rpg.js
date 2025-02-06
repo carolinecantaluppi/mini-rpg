@@ -10,12 +10,11 @@ let giocatore = {
 }
 
 // Selezione randomica di mostri (nome, vita, attacco e difesa)
-let mostro = {
-    nome: "",
-    vita: Math.floor(Math.random() * 99) + 1,
-    attacco:  Math.floor(Math.random() * 9) + 1,
-    difesa: Math.floor(Math.random() * 9) + 1
-}
+let mostri = [
+    { nome: "Slime", vita: Math.floor(Math.random() * 99) + 1, attacco:  Math.floor(Math.random() * 9) + 1,  difesa: Math.floor(Math.random() * 9) + 1 },
+    { nome: "Malakit il Dio Caduto", vita: Math.floor(Math.random() * 99) + 1, attacco:  Math.floor(Math.random() * 9) + 1,  difesa: Math.floor(Math.random() * 9) + 1 },
+    { nome: "Slime2", vita: Math.floor(Math.random() * 99) + 1, attacco:  Math.floor(Math.random() * 9) + 1,  difesa: Math.floor(Math.random() * 9) + 1 }
+]
 
 
 // Gestire il turno del giocatore (può compiere 3 opzioni: attaccare, curarsi e tentare la fuga)
@@ -23,6 +22,9 @@ let mostro = {
 // Il giocatore può curarsi solo 3 volte
 // La cura, l’attacco e la difesa sono valori random tra due estremi
 // Le probabilità di fuga calano in base al tipo di mostro (es. 90% con uno slime, 5% con Malakit il Dio Caduto)
+
+let mostro = Math.floor(Math.random() * mostri.length);
+
 function turnoGiocatore() {
     let azioni = prompt("Scegli una delle seguenti opzioni: attaccare, curarsi o fuggire"); 
     while (giocatore.vita > 0 && mostro.vita > 0) {
@@ -40,25 +42,20 @@ function turnoGiocatore() {
             console.log("Non valido. Scrivi una opzione valida.");
         }
     }
+    fineGioco();
 }
         
 // Gestire il turno del mostro (attacco automatico)
 function turnoMostro() {
-    // let attaccoMostro = Math.floor(Math.random() * mostro.attacco) + 5;
     console.log("Il mostro ti ha attaccato. Questo è la tua vita rimanente: " + giocatore.vita);
     giocatore.vita = giocatore.vita - attaccoMostro;
     console.log("Il tuo giocatore ha attualmente " + giocatore.vita + "di vita.");
-    if (mostro.vita <= 0) {
-        console.log("Hai vinto! Congratulazioni!");
-      } else if (giocatore.vita <= 0) {
-        console.log("Game over.");
-      }
 }
 
 // Gestire la fine del gioco (sconfitta, vittoria o fuga)
 function fineGioco() {
     if (giocatore.vita <= 0) {
-        console.log("Game Over. Purtroppo, hai perso. Il mostro ti ha sconfitto.");
+        console.log("Game Over.");
     }
     if (mostro.vita <= 0) {
         console.log("Hai vinto! Hai sconfitto il mostro.");
@@ -68,3 +65,4 @@ function fineGioco() {
     }
 }
 
+turnoGiocatore();
