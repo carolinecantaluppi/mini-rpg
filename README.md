@@ -16,16 +16,8 @@ This project demonstrates object-oriented programming principles and serves as a
 
 ## Getting Started
 
-To play the game locally:
-
 1. **Clone the Repository**:
    git clone https://github.com/carolinecantaluppi/mini-rpg.git
-
-2. **Navigate to the Project Directory:**
-  cd mini-rpg
-
-3. **Open index.html in Your Browser:**
-  You can double-click the index.html file or open it directly from your browser.
 
 ## How to Play
 
